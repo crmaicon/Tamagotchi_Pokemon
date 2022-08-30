@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "a9d4vU+bIR4y74qrcpJD9UmZBLCSHN6G81fqlnT1G5BsQfynej6tIWrcr2vu5ZCUK0HHuzdqtqp552TG4kIj3w==",
+  "success": true,
+  "projectFilePath": "E:\\Alura\\DesafioAlura\\Tamagotchi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\crmai\\.nuget\\packages\\automapper\\3.1.1\\automapper.3.1.1.nupkg.sha512",
+    "C:\\Users\\crmai\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AutoMapper 3.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AutoMapper",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}
