@@ -8,17 +8,18 @@ namespace Tamagotchi
     {
         static void Main()
         {          
-            List<Pokemon> MascotesAdotados;  
+            List<Pokemon> MascotesAdotados;
+            TamagotchiView Mensagens;
+
             MascotesAdotados = new List<Pokemon>();
+            Mensagens = new TamagotchiView();
 
             string opcaoUsuario;
             int jogar = 1;
 
             while (jogar == 1)
             {
-                Console.WriteLine("1 - Adotar um mascote virtual");
-                Console.WriteLine("3 - Sair");
-
+                Mensagens.MenuInicial();
                 opcaoUsuario = Console.ReadLine();
 
                 switch (opcaoUsuario)
@@ -27,45 +28,23 @@ namespace Tamagotchi
                         string opcaoUsuarioSubMenu = "1", especieMascote;
                         Pokemon pokemon = new();
 
-                        Console.WriteLine($"Escolha uma espécie:");
-                        Console.WriteLine("BULBASAUR");
-                        Console.WriteLine("IVYSAUR");
-                        Console.WriteLine();
-                        especieMascote = Console.ReadLine();
-
+                        especieMascote = Mensagens.MenuAdocao();
 
                         while (opcaoUsuario != "3")
                         {
-                            Console.WriteLine($"1 - SABER MAIS SOBRE O {especieMascote}");
-                            Console.WriteLine($"2 - ADOTAR {especieMascote}");
-                            Console.WriteLine($"3 - VOLTAR");
-                            Console.WriteLine();
-
-                            opcaoUsuarioSubMenu = Console.ReadLine();
+                            opcaoUsuarioSubMenu = Mensagens.DesejaSaberMais(especieMascote);
 
                             switch (opcaoUsuarioSubMenu)
                             {
                                 case "1":
                                     pokemon = PokemonService.BuscarCaracteristicasPorEspecie(especieMascote);
-                                    Console.WriteLine("name Pokemon: " + pokemon.name.ToUpper());
-                                    Console.WriteLine("Altura: " + pokemon.height);
-                                    Console.WriteLine("Peso: " + pokemon.weight);
-
-                                    Console.WriteLine("Habilidades: ");
-                                    foreach (Abilities habilidade in pokemon.abilities)
-                                    {
-                                        Console.Write(habilidade.ability.name.ToUpper() + " ");
-                                    }
-                                    Console.WriteLine();
-
+                                    Mensagens.DetalhesMascote(pokemon);
                                     break;
 
                                 case "2":
                                     pokemon = PokemonService.BuscarCaracteristicasPorEspecie(especieMascote);
                                     MascotesAdotados.Add(pokemon);
-                                    Console.WriteLine($"MASCOTE ADOTADO COM SUCESSO, O OVO ESTÁ CHOCANDO");
-                                    Console.WriteLine();
-
+                                    Mensagens.SucessoAdocao();
                                     opcaoUsuario = "3";
                                     break;
 
@@ -79,7 +58,8 @@ namespace Tamagotchi
                             }
                         }
                         break;
-                   
+                    case "2": //interacao
+                        break;
                     case "3":
                         jogar = 0;
                         break;
